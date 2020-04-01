@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\sergeim\\vsprojects\\WebCore\\WebCore\\WebCore.csproj": {}
+    "H:\\sergeimgithub\\galina\\WebCore\\WebCore\\WebCore.csproj": {}
   },
   "projects": {
-    "H:\\sergeim\\vsprojects\\WebCore\\WebCore\\WebCore.csproj": {
+    "H:\\sergeimgithub\\galina\\WebCore\\WebCore\\WebCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\sergeim\\vsprojects\\WebCore\\WebCore\\WebCore.csproj",
+        "projectUniqueName": "H:\\sergeimgithub\\galina\\WebCore\\WebCore\\WebCore.csproj",
         "projectName": "WebCore",
-        "projectPath": "H:\\sergeim\\vsprojects\\WebCore\\WebCore\\WebCore.csproj",
+        "projectPath": "H:\\sergeimgithub\\galina\\WebCore\\WebCore\\WebCore.csproj",
         "packagesPath": "C:\\Users\\sergeim.REDMOND\\.nuget\\packages\\",
-        "outputPath": "H:\\sergeim\\vsprojects\\WebCore\\WebCore\\obj\\",
+        "outputPath": "H:\\sergeimgithub\\galina\\WebCore\\WebCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
