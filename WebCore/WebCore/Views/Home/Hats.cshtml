@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Hats";
+}
+
+<h2>Hats</h2>
+
+<style>
+    img {
+        width: 95%;
+        height: 95%;
+    }
+
+    .tdright {
+        width: 80%;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .rotateimg90 {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+</style>
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+
+<div>
+    <a asp-area="" asp-controller="Home" asp-action="HatsChild">
+        <img src="~/images20191123/Hats/child1.png" style="width:200px;" />
+    </a>
+    <a asp-area="" asp-controller="Home" asp-action="HatsLady">
+        <img src="~/images20191123/Hats/lady1.jpg" style="width:200px;" />
+    </a>
+    <a asp-area="" asp-controller="Home" asp-action="HatsMen">
+        <img src="~/images20191123/Hats/men1.jpg" style="width:200px;" class="rotateimg90"/>
+    </a>
+</div>
+
+
+@*<div>
+    <table>
+        <tr>
+            <td>
+                Descriptive text for turtle 1
+            </td>
+            <td>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Contact">
+                    <img src="~/images20191123/toys/turtle1.jpg" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Descriptive text for turtle 2
+            </td>
+            <td>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Contact">
+                    <img src="~/images20191123/toys/turtle2.jpg" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Descriptive text for turtle 3
+            </td>
+            <td>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Contact">
+                    <img src="~/images20191123/toys/turtle3.jpg" />
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>*@

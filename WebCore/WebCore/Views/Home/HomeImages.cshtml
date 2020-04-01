@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "HomeImages";
+}
+
+<h2>HomeImages</h2>
+
+<style>
+    img {
+        width: 95%;
+        height: 95%;
+    }
+
+    .tdright {
+        width: 80%;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+</style>
+
+
+<div>
+    <a asp-area="" asp-controller="Home" asp-action="HomeImagesBlanket">
+        <img src="~/images20191123/HomeImages/blanket1.jpg" style="width:200px;" />
+    </a>
+    <a asp-area="" asp-controller="Home" asp-action="HomeImagesDecor">
+        <img src="~/images20191123/HomeImages/decor1.jpg" style="width:200px;" />
+    </a>
+    <a asp-area="" asp-controller="Home" asp-action="HomeImagesPillow">
+        <img src="~/images20191123/HomeImages/pillow1.jpg" style="width:200px;" />
+    </a>
+</div>
+
+
+@*<div>
+    <table>
+        <tr>
+            <td>
+                Descriptive text for turtle 1
+            </td>
+            <td>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Contact">
+                    <img src="~/images20191123/toys/turtle1.jpg" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Descriptive text for turtle 2
+            </td>
+            <td>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Contact">
+                    <img src="~/images20191123/toys/turtle2.jpg" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Descriptive text for turtle 3
+            </td>
+            <td>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Contact">
+                    <img src="~/images20191123/toys/turtle3.jpg" />
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>*@

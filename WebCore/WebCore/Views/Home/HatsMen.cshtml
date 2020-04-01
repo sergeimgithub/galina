@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "HatsMen";
+}
+
+<h2>HatsMen</h2>
+
+
+@{
+    ViewData["Title"] = "Hats Men";
+}
+
+<h2>Hats Men</h2>
+
+<style>
+    img {
+        width: 95%;
+    }
+    .tdright {
+        width: 80%;
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .rotateimg90 {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+</style>
+<div>
+    <table>
+        <tr>
+            <td>
+                A short description of the element. A reference to the more detailed site goes here.A short description of the element. A reference to the more detailed site goes here.
+            </td>
+            <td class="tdright">
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Contact">
+                    <img src="~/images20191123/Hats/men1.jpg"  class="rotateimg90" />
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
