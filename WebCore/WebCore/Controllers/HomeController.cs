@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,21 @@ namespace WebCore.Controllers
             ViewData["Message"] = "Toys action.";
 
             return View();
+        }
+
+        public IActionResult AccessoriesGeneric()
+        {
+            ViewData["Message"] = "Toys action.";
+            var imageFiles = new List<FileData>();
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images20191123", "Accessories", "bag");
+            foreach (var file in Directory.GetFiles(dir))
+            {
+                var i = file.IndexOf("images20191123");
+                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
+
+                imageFiles.Add(new FileData { ImageFile = relativeFileName, });
+            }
+            return View(imageFiles);
         }
 
         public IActionResult AccessoriesDog()
