@@ -30,10 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Home\ToysOpossums.cshtml">
+    <Content Update="Views\Home\ToysOpossums_old.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Home\ToysOctopuses.cshtml">
+    <Content Update="Views\Home\ToysOctopuses_old.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="wwwroot\images20191123\Hats\child\child10.JPG">

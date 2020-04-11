@@ -22,21 +22,15 @@
 
 
 <div>
-    <a asp-area="" asp-controller="Home" asp-action="HomeImagesBlanket">
-        <img src="~/images20191123/HomeImages/blanket1.jpg" style="width:200px;" 
-             onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "HomeImages", subfolder = "blanket" }))'"
-             />
-    </a>
-    <a asp-area="" asp-controller="Home" asp-action="HomeImagesDecor">
-        <img src="~/images20191123/HomeImages/decor1.jpg" style="width:200px;" 
-             onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "HomeImages", subfolder = "decor" }))'"
-             />
-    </a>
-    <a asp-area="" asp-controller="Home" asp-action="HomeImagesPillow">
-        <img src="~/images20191123/HomeImages/pillow1.jpg" style="width:200px;" 
-             onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "HomeImages", subfolder = "pillow" }))'"
-             />
-    </a>
+    <img src="~/images20191123/HomeImages/blanket1.jpg" style="width:200px;" 
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "HomeImages", subfolder = "blanket" }))'"
+            />
+    <img src="~/images20191123/HomeImages/decor1.jpg" style="width:200px;" 
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "HomeImages", subfolder = "decor" }))'"
+            />
+    <img src="~/images20191123/HomeImages/pillow1.jpg" style="width:200px;" 
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "HomeImages", subfolder = "pillow" }))'"
+            />
 </div>
 
 
