@@ -24,9 +24,9 @@
 &nbsp;&nbsp;&nbsp;
 
 <div>
-    <a asp-area="" asp-controller="Home" asp-action="TopAll">
-        <img src="~/images20191123/top/top1.jpg" style="width:200px;" />
-    </a>
+        <img src="~/images20191123/top/top1.jpg" style="width:200px;" 
+             onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "top", subfolder = "top" }))'"
+             />
 </div>
 
 
