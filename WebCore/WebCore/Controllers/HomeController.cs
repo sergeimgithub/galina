@@ -271,7 +271,8 @@ namespace WebCore.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Title"] = "Contact";
+            ViewData["Message"] = "Contact information";
 
             return View();
         }
