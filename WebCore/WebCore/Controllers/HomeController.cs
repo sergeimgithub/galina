@@ -54,7 +54,28 @@ namespace WebCore.Controllers
                 var i = file.IndexOf("images20191123");
                 var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
 
-                imageFiles.Add(new FileData { ImageFile = relativeFileName, });
+                imageFiles.Add(new FileData { wwwRootFileName = relativeFileName, });
+            }
+            return View(imageFiles);
+        }
+
+        public IActionResult ShowSubfolder(string folder, string subfolder)
+        {
+            if (folder == null) throw new ArgumentNullException("folder");
+            if (subfolder == null) throw new ArgumentNullException("subfolder");
+            ViewData["Message"] = "Toys action 1.";
+            var imageFiles = new List<FileData>();
+            // if folder = Accessories, and subfolder = bag, the result will be
+            // H:\sergeimgithub\galina\WebCore\WebCore\wwwroot\images20191123\Accessories\bag
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images20191123", folder, subfolder);
+            foreach (var file in Directory.GetFiles(dir))
+            {
+                // strip off the leading part not including images20191123\Accessories\bag
+                // also change backslash to forward slash
+                var i = file.IndexOf("images20191123");
+                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
+                // /images20191123/Accessories/bag/bag1.JPG
+                imageFiles.Add(new FileData { wwwRootFileName = relativeFileName, });
             }
             return View(imageFiles);
         }

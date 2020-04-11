@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebCore.Models.FileData>
+
+@{
+    ViewData["Title"] = "AccessoriesGeneric";
+}
+
+<h2>AccessoriesGeneric</h2>
+
+@foreach (var item in Model)
+{
+<a asp-area="" asp-controller="Home" asp-action="Contact">
+    <!-- file names will be of a form /images20191123/Accessories/bag/bag1.JPG -->
+    <img src="@item.wwwRootFileName" style="width:30%;padding-top:3px;" />
+</a>
+}

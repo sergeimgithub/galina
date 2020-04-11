@@ -7,6 +7,6 @@ namespace WebCore.Models
 {
     public class FileData
     {
-        public string ImageFile;
+        public string wwwRootFileName;
     }
 }
