@@ -30,12 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Home\ToysOpossums_old.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Views\Home\ToysOctopuses_old.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="wwwroot\images20191123\Hats\child\child10.JPG">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -63,6 +57,18 @@
     <Content Update="wwwroot\images20191123\Hats\child\child16.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images20191123\Seattle\IMG_20140510_185416.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images20191123\Seattle\IMG_20140510_185456.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images20191123\Seattle\IMG_20140511_140059.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images20191123\Seattle\IMG_20140511_145948.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\Food\DSC_1667.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

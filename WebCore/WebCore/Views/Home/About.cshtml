@@ -4,4 +4,8 @@
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>I currently live and knit in Kirkland. This is a town near Seattle.</p>
+
+<a href = '@(Url.Action("ShowSubfolder", new { folder = "Seattle", subfolder = "." }))'>
+    Click here to view photos.
+</a>
