@@ -30,10 +30,10 @@
 
 
 <div>
-    <a asp-area="" asp-controller="Home" asp-action="Scarf">
-        <img src="~/images20191123/ShawlsAndScarves/scarf1.jpg" style="width:400px;margin-right:50px;margin-top:150px;margin-bottom:150px" class="rotateimg90" />
-    </a>
-    <a asp-area="" asp-controller="Home" asp-action="Shawl">
-        <img src="~/images20191123/ShawlsAndScarves/shawl1.jpg" style="width:520px;" />
-    </a>
+    <img src="~/images20191123/ShawlsAndScarves/scarf1.jpg" style="width:400px;margin-right:50px;margin-top:150px;margin-bottom:150px" class="rotateimg90" 
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "ShawlsAndScarves", subfolder = "scarf" }))'"
+            />
+    <img src="~/images20191123/ShawlsAndScarves/shawl1.jpg" style="width:520px;" 
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "ShawlsAndScarves", subfolder = "shawl" }))'"
+            />
 </div>
