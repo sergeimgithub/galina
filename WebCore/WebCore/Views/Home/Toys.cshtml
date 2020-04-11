@@ -24,17 +24,17 @@
 &nbsp;&nbsp;&nbsp;
 
 <div>
-    <a asp-area="" asp-controller="Home" asp-action="ToysOctopuses">
-        <img src="~/images20191123/toys/octopus1.jpg" style="width:200px;" />
-    </a>
-    <a asp-area="" asp-controller="Home" asp-action="ToysOpossums">
-        <img src="~/images20191123/toys/opossum1.jpg" style="width:200px;" />
-    </a>
-    <a asp-area="" asp-controller="Home" asp-action="ToysTurtles">
-        <img src="~/images20191123/toys/turtle1.jpg" style="width:200px;" />
-    </a>
-    <a asp-area="" asp-controller="Home" asp-action="ToysFerret">
-        <img src="~/images20191123/toys/ferret1.jpg" style="width:200px;" />
-    </a>
+    <img src="~/images20191123/toys/octopus1.jpg" style="width:200px;" 
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "Toys", subfolder = "octopus" }))'"
+        />
+    <img src="~/images20191123/toys/opossum1.jpg" style="width:200px;"
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "Toys", subfolder = "opossum" }))'"
+            />
+    <img src="~/images20191123/toys/turtle1.jpg" style="width:200px;"
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "Toys", subfolder = "turtle" }))'"
+            />
+    <img src="~/images20191123/toys/ferret1.jpg" style="width:200px;"
+            onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "Toys", subfolder = "ferret" }))'"
+            />
 </div>
  
