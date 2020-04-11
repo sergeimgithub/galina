@@ -44,7 +44,7 @@ namespace WebCore.Controllers
             return View();
         }
 
-        public IActionResult AccessoriesGeneric()
+        public IActionResult AccessoriesGeneric(string folder)
         {
             ViewData["Message"] = "Toys action.";
             var imageFiles = new List<FileData>();

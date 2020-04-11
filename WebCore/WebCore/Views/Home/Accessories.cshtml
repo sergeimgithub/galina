@@ -25,7 +25,8 @@
 
 <div>
     <a asp-area="" asp-controller="Home" asp-action="AccessoriesBag">
-        <img src="~/images20191123/Accessories/bag1.jpg" style="width:200px;" />
+        <img src="~/images20191123/Accessories/bag1.jpg" style="width:200px;" 
+             onclick="location.href = '@(Url.Action("AccessoriesGeneric", new { folder = "bag" }))'"/>
     </a>
     <a asp-area="" asp-controller="Home" asp-action="AccessoriesDog">
         <img src="~/images20191123/Accessories/dog1.jpg" style="width:200px;" />
