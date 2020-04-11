@@ -33,13 +33,19 @@
 
 <div>
     <a asp-area="" asp-controller="Home" asp-action="HatsChild">
-        <img src="~/images20191123/Hats/child1.png" style="width:200px;" />
+        <img src="~/images20191123/Hats/child1.png" style="width:200px;" 
+             onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "Hats", subfolder = "child" }))'"
+             />
     </a>
     <a asp-area="" asp-controller="Home" asp-action="HatsLady">
-        <img src="~/images20191123/Hats/lady1.jpg" style="width:200px;" />
+        <img src="~/images20191123/Hats/lady1.jpg" style="width:200px;" 
+             onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "Hats", subfolder = "lady" }))'"
+             />
     </a>
     <a asp-area="" asp-controller="Home" asp-action="HatsMen">
-        <img src="~/images20191123/Hats/men1.jpg" style="width:200px;" class="rotateimg90"/>
+        <img src="~/images20191123/Hats/men1.jpg" style="width:200px;" class="rotateimg90"
+             onclick="location.href = '@(Url.Action("ShowSubfolder", new { folder = "Hats", subfolder = "men" }))'"
+             />
     </a>
 </div>
 
