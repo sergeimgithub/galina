@@ -40,6 +40,12 @@ namespace WebCore.Controllers
             if (folder == null) throw new ArgumentNullException("folder");
             if (subfolder == null) throw new ArgumentNullException("subfolder");
             ViewData["Message"] = "Toys action 1.";
+            // make octopus --> Octopus
+            var subfolder_ = subfolder.Substring(0, 1).ToUpper() + subfolder.Substring(1);
+            ViewData["Title"] = $"Showing {subfolder_} collection of {folder} group"; // not used currently; replace by the next two lines
+            ViewData["Folder"] = folder;
+            ViewData["Subfolder"] = subfolder_;
+
             var imageFiles = new List<FileData>();
             // if folder = Accessories, and subfolder = bag, the result will be
             // H:\sergeimgithub\galina\WebCore\WebCore\wwwroot\images20191123\Accessories\bag
