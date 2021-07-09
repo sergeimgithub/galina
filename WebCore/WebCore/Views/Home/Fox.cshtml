@@ -1,0 +1,34 @@
+﻿@model WebCore.Models.Serialized
+
+
+@{
+    ViewData["Title"] = "Fox";
+}
+
+<h2>Foxes</h2>
+
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+
+<div id="imagediv">Wait ...</div>
+
+<script>
+    window.onload = function() {
+        var data = @Html.Raw(Model.Data);
+        var div = document.getElementById('imagediv');
+        var len = data.Lines.length;
+        var result = "";
+        for (var i = 0; i < len; i++)
+        {
+            // /images20210703/Fox/DSC04113.JPG
+            var line = data.Lines[i];
+            result += line;
+            result += '<br/>';
+            result += '<img src="' + line + '" style="width:400px;" />';
+            result += '<br/>';
+            result += '<br/>';
+        }
+        div.innerHTML = result;
+    } 
+</script>

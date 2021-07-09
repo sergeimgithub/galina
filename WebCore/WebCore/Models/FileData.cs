@@ -9,4 +9,14 @@ namespace WebCore.Models
     {
         public string wwwRootFileName;
     }
+
+    public class Serialized
+    {
+        public string Data;
+    }
+
+    public class TestData
+    {
+        public List<string> Lines = new List<string>();
+    }
 }

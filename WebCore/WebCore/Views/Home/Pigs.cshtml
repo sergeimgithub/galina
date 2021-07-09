@@ -1,0 +1,47 @@
+﻿@model WebCore.Models.Serialized
+
+
+@{
+    ViewData["Title"] = "Fox";
+}
+
+<h2>Foxes</h2>
+
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+
+<div id="imagediv">Wait ...</div>
+
+<script src="CommonCode.js"></script>
+
+<script>
+    //. current: 3) make script generic; 3a) make Controller code generic; 4) add other pages
+    window.onload = function() {
+        var data = @Html.Raw(Model.Data);
+        var div = document.getElementById('imagediv');
+        RenderImageFolder(div, data);
+    } 
+</script>
+
+<script>
+    function RenderImageFolder(div, data) {
+        var len = data.Lines.length;
+        var result = "";
+        for (var i = 0; i < len; i++)
+        {
+                // /images20210703/Fox/DSC04113.JPG
+                var line = data.Lines[i];
+                result += '<table style="display:inline-block">';
+                    result += '<tr><td>';
+                        result += line;
+                        result += '</td></tr>';
+                    result += '<tr><td>';
+                        result += '<img src="' + line + '" style="width:330px;" />';
+                        result += '</td></tr>';
+                    result += '</table>';
+                result += '&nbsp;';
+            }
+        div.innerHTML = result;
+    }
+</script>

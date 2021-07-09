@@ -69,6 +69,44 @@ namespace WebCore.Controllers
             return View();
         }
 
+        public IActionResult Fox()
+        {
+            ViewData["Message"] = "Fox 115.";
+
+            var testData = new TestData();
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images20210703", "Fox");
+            foreach (var file in Directory.GetFiles(dir))
+            {
+                var i = file.IndexOf("images");
+                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
+                // /images20191123/Accessories/bag/bag1.JPG
+                testData.Lines.Add(relativeFileName);
+            }
+            var ser = new Models.Serialized();
+            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
+            ser.Data = serializedData;
+            return View(ser);
+        }
+
+        public IActionResult Pigs()
+        {
+            ViewData["Message"] = "Fox 115.";
+
+            var testData = new TestData();
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images20210703", "Pigs");
+            foreach (var file in Directory.GetFiles(dir))
+            {
+                var i = file.IndexOf("images");
+                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
+                // /images20191123/Accessories/bag/bag1.JPG
+                testData.Lines.Add(relativeFileName);
+            }
+            var ser = new Models.Serialized();
+            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
+            ser.Data = serializedData;
+            return View(ser);
+        }
+
         public IActionResult HomeImages()
         {
             ViewData["Message"] = "fix me 118.";
