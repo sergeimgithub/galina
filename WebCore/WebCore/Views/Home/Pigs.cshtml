@@ -13,12 +13,14 @@
 
 <div id="imagediv">Wait ...</div>
 
+<script src="CommonCode.js"></script>
 <script>
     //. current: 3) make script generic; 3a) make Controller code generic; 4) add other pages
     window.onload = function() {
         var data = @Html.Raw(Model.Data);
         var div = document.getElementById('imagediv');
-        var len = data.Lines.length;
+        RenderImageFolder(div, data);
+@*        var len = data.Lines.length;
         var result = "";
         for (var i = 0; i < len; i++)
         {
@@ -35,5 +37,5 @@
             result += '&nbsp;';
         }
         div.innerHTML = result;
-    } 
+*@    } 
 </script>
