@@ -1,0 +1,30 @@
+﻿@model WebCore.Models.Serialized
+
+
+@{
+    ViewData["Title"] = "Fox";
+}
+
+<h2>FOX1</h2>
+
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+
+<div id="testdiv4">Wait ...</div>
+
+
+<script>
+    window.onload = function(){
+        var data = @Html.Raw(Model.Data);
+        var div = document.getElementById('testdiv4');
+        var len = data.Lines.length;
+        var result = "";
+        for (var i = 0; i < len; i++)
+        {
+            var line = data.Lines[i];
+            result += "<br>" + line + "</br>";
+        }
+        div.innerHTML = result;
+    } 
+</script>

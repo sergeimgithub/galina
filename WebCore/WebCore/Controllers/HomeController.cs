@@ -69,6 +69,20 @@ namespace WebCore.Controllers
             return View();
         }
 
+        public IActionResult Fox()
+        {
+            ViewData["Message"] = "Fox 115.";
+
+            var testData = new TestData();
+            testData.Lines.Add("sergeim");
+            testData.Lines.Add("galinaf`");
+
+            var ser = new Models.Serialized();
+            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
+            ser.Data = serializedData;
+            return View(ser);
+        }
+
         public IActionResult HomeImages()
         {
             ViewData["Message"] = "fix me 118.";
