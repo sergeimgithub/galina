@@ -5,7 +5,7 @@
     ViewData["Title"] = "Fox";
 }
 
-<h2>FOX1</h2>
+<h2>Fox (title)</h2>
 
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
@@ -13,9 +13,17 @@
 
 <div id="testdiv4">Wait ...</div>
 
+<div>
+    <img src="~/images20191123/Hats/child1.png" style="width:200px;" />
+    <img src="~/images20191123/Hats/lady1.jpg" style="width:200px;" />
+    <img src="~/images20191123/Hats/men1.jpg" style="width:200px;" class="rotateimg90"/>
+    <img src="~/images20191123/Hats/men1.jpg" style="width:200px;" class="rotateimg90"/>
+    <img src='~/images20191123/Hats/men1.jpg' style='width:200px;' class='rotateimg90'/>
+</div>
+
 
 <script>
-    window.onload = function(){
+    window.onload = function() {
         var data = @Html.Raw(Model.Data);
         var div = document.getElementById('testdiv4');
         var len = data.Lines.length;
@@ -24,6 +32,10 @@
         {
             var line = data.Lines[i];
             result += "<br>" + line + "</br>";
+            result += "<img src='~/images20191123/Hats/child1.png' style='width:200px;' />";
+            result += '<img src="~/images20191123/Hats/lady1.jpg" style="width:200px;" />';
+            //. current
+            result += '<img src="/images20191123/Accessories/bag/bag1.JPG" style="width:200px;" />';
         }
         div.innerHTML = result;
     } 

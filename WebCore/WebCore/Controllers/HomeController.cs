@@ -74,8 +74,9 @@ namespace WebCore.Controllers
             ViewData["Message"] = "Fox 115.";
 
             var testData = new TestData();
-            testData.Lines.Add("sergeim");
-            testData.Lines.Add("galinaf`");
+            testData.Lines.Add("child1.jpg");
+            testData.Lines.Add("lady1.jpg");
+            testData.Lines.Add("men1.jpg");
 
             var ser = new Models.Serialized();
             var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
