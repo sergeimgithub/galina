@@ -34,8 +34,10 @@
             result += "<br>" + line + "</br>";
             result += "<img src='~/images20191123/Hats/child1.png' style='width:200px;' />";
             result += '<img src="~/images20191123/Hats/lady1.jpg" style="width:200px;" />';
-            //. current
-            result += '<img src="/images20191123/Accessories/bag/bag1.JPG" style="width:200px;" />';
+            //. current: 1) pass full path; 2) add another page; 3) make script generic; 4) add other pages
+            //result += '<img src="/images20191123/Accessories/bag/bag1.JPG" style="width:200px;" />';
+            result += '<img src="/images20191123/Accessories/bag/' + 'bag1.JPG' + '" style="width:200px;" />';
+            result += '<img src="/images20191123/Hats/' + line + '" style="width:200px;" />';
         }
         div.innerHTML = result;
     } 
