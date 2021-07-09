@@ -74,9 +74,19 @@ namespace WebCore.Controllers
             ViewData["Message"] = "Fox 115.";
 
             var testData = new TestData();
-            testData.Lines.Add("child1.jpg");
-            testData.Lines.Add("lady1.jpg");
-            testData.Lines.Add("men1.jpg");
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images20210703", "Fox");
+            foreach (var file in Directory.GetFiles(dir))
+            {
+                // strip off the leading part not including images20191123\Accessories\bag
+                // also change backslash to forward slash
+                var i = file.IndexOf("images");
+                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
+                // /images20191123/Accessories/bag/bag1.JPG
+                testData.Lines.Add(relativeFileName);
+            }
+            //testData.Lines.Add("child1.jpg");
+            //testData.Lines.Add("lady1.jpg");
+            //testData.Lines.Add("men1.jpg");
 
             var ser = new Models.Serialized();
             var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
