@@ -73,38 +73,15 @@ namespace WebCore.Controllers
         {
             ViewData["Message"] = "Fox 115.";
 
-            var testData = new TestData();
-            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images20210703", "Fox");
-            foreach (var file in Directory.GetFiles(dir))
-            {
-                var i = file.IndexOf("images");
-                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
-                // /images20191123/Accessories/bag/bag1.JPG
-                testData.Lines.Add(relativeFileName);
-            }
-            var ser = new Models.Serialized();
-            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
-            ser.Data = serializedData;
-            return View(ser);
+            var serializedData = PictureNamesInFolder("images20210703", "Fox");
+            return View(serializedData);
         }
 
         public IActionResult Pigs()
         {
             ViewData["Message"] = "Fox 115.";
-
-            var testData = new TestData();
-            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images20210703", "Pigs");
-            foreach (var file in Directory.GetFiles(dir))
-            {
-                var i = file.IndexOf("images");
-                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
-                // /images20191123/Accessories/bag/bag1.JPG
-                testData.Lines.Add(relativeFileName);
-            }
-            var ser = new Models.Serialized();
-            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
-            ser.Data = serializedData;
-            return View(ser);
+            var serializedData = PictureNamesInFolder("images20210703", "Pigs");
+            return View(serializedData);
         }
 
         public IActionResult HomeImages()
@@ -194,6 +171,29 @@ namespace WebCore.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        /// <summary>
+        /// Get list of picture names in given folder off the wwwroot.
+        /// </summary>
+        /// <param name="images">For example "images20210703"</param>
+        /// <param name="folder">for example "Pigs"</param>
+        /// <returns>Models.Serialized</returns>
+        private Models.Serialized PictureNamesInFolder(string images, string folder)
+        {
+            var testData = new TestData();
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", images, folder);
+            foreach (var file in Directory.GetFiles(dir))
+            {
+                var i = file.IndexOf("images");
+                // the relative name will look like: /images20191123/Accessories/bag/bag1.JPG
+                var relativeFileName = ("/" + file.Substring(i)).Replace("\\", "/");
+                testData.Lines.Add(relativeFileName);
+            }
+            var ser = new Models.Serialized();
+            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
+            ser.Data = serializedData;
+            return ser;
         }
     }
 }
