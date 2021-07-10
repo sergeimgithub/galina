@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace WebCore.Models
 {
-    public class FileData
+    public class Serialized
     {
-        public string wwwRootFileName;
+        public string Data;
     }
 }
