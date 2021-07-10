@@ -21,6 +21,7 @@
     <None Include="wwwroot\images\M1290002.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="wwwroot\js\CommonCode.js" />
   </ItemGroup>
 
   <ItemGroup>
