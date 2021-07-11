@@ -2,10 +2,10 @@
 
 
 @{
-    ViewData["Title"] = "Fox";
+    ViewData["Title"] = "Pigs";
 }
 
-<h2>Foxes</h2>
+<h2>Pigs</h2>
 
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
@@ -23,30 +23,3 @@
         RenderImageFolder(div, data);
     } 
 </script>
-
-@*now moved to C:\sergeim\galina\WebCore\WebCore\wwwroot\js\CommonCode.js
-see https://docs.microsoft.com/en-us/aspnet/core/client-side/bundling-and-minification?view=aspnetcore-5.0
-*@
-
-@*<script>
-    function RenderImageFolder(div, data) {
-        var len = data.Lines.length;
-        var result = "";
-        for (var i = 0; i < len; i++)
-        {
-                // /images20210703/Fox/DSC04113.JPG
-                var line = data.Lines[i];
-                result += '<table style="display:inline-block">';
-                    result += '<tr><td>';
-                        result += line;
-                        result += '</td></tr>';
-                    result += '<tr><td>';
-                        result += '<img src="' + line + '" style="width:330px;" />';
-                        result += '</td></tr>';
-                    result += '</table>';
-                result += '&nbsp;';
-            }
-        div.innerHTML = result;
-    }
-</script>
-*@
