@@ -76,6 +76,13 @@ namespace WebCore.Controllers
             return View(serializedData);
         }
 
+        public IActionResult Rooster()
+        {
+            ViewData["Message"] = "Roosters";
+            var serializedData = PictureNamesInFolder("Roosters", "images20210703", "Rooster");
+            return View(serializedData);
+        }
+
         public IActionResult Pigs()
         {
             ViewData["Message"] = "Pigs";
