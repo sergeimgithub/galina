@@ -104,6 +104,34 @@ namespace WebCore.Controllers
             return View(serializedData);
         }
 
+        public IActionResult Cows()
+        {
+            ViewData["Message"] = "Cows";
+            var serializedData = PictureNamesInFolder("Cows", "images20210703", "Cows");
+            return View(serializedData);
+        }
+
+        public IActionResult Dogs()
+        {
+            ViewData["Message"] = "Dogs";
+            var serializedData = PictureNamesInFolder("Dogs", "images20210703", "Dogs");
+            return View(serializedData);
+        }
+
+        public IActionResult Turtle()
+        {
+            ViewData["Message"] = "Group";
+            var serializedData = PictureNamesInFolder("Turtle", "images20210703", "Turtle");
+            return View(serializedData);
+        }
+
+        public IActionResult ZmeiGorinych()
+        {
+            ViewData["Message"] = "ZmeiGorinych";
+            var serializedData = PictureNamesInFolder("Zmei Gorinych", "images20210703", "ZmeiGorinych");
+            return View(serializedData);
+        }
+
         public IActionResult HomeImages()
         {
             ViewData["Message"] = "fix me 118.";
