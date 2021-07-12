@@ -93,7 +93,7 @@ namespace WebCore.Controllers
         public IActionResult Pigs()
         {
             ViewData["Message"] = "Pigs";
-            var serializedData = PictureNamesInFolder("Pigs", "images20210703", "Pigs");
+            var serializedData = PictureNamesInFolder(pageTitle: "Pigs", images: "images20210703", folder: "Pigs");
             return View(serializedData);
         }
 
@@ -201,19 +201,20 @@ namespace WebCore.Controllers
         /// <returns>Models.Serialized</returns>
         private Models.Serialized PictureNamesInFolder(string pageTitle, string images, string folder)
         {
-            var testData = new StandardPageData(pageTitle);
+            var pageData = new StandardPageData(pageTitle);
             var dir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", images, folder);
             foreach (var file in Directory.GetFiles(dir))
             {
                 var indexOfImages = file.IndexOf("images");
                 // the relative name will look like: /images20191123/Accessories/bag/bag1.JPG
                 var relativeFileName = ("/" + file.Substring(indexOfImages)).Replace("\\", "/");
-                testData.Lines.Add(relativeFileName);
+                pageData.Lines.Add(relativeFileName);
             }
-            var ser = new Models.Serialized();
-            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
-            ser.Data = serializedData;
-            return ser;
+            var serialized = new Models.Serialized();
+            serialized.Title = pageTitle;
+            var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(pageData);
+            serialized.Data = serializedData;
+            return serialized;
         }
     }
 }

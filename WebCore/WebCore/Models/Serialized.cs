@@ -7,6 +7,7 @@ namespace WebCore.Models
 {
     public class Serialized
     {
+        public string Title;
         public string Data;
     }
 }

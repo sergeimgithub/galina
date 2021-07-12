@@ -11,8 +11,7 @@ function RenderImageFolder(div, data) {
             result += '<span style="font-size:7px">' + line + '</span>';
             result += '</td></tr>';
             result += '<tr><td>';
-            // result += '<img src="' + line + '" style="width:330px;" />';
-            result += '<img src="' + line + '" style="height:220px;" />';
+            result += '<img src="' + line + '" style="height:300px;" />';
             result += '</td></tr>';
             result += '</table>';
             result += '&nbsp;';
