@@ -7,13 +7,14 @@ function RenderImageFolder(div, data) {
             // /images20210703/Fox/DSC04113.JPG
             var line = data.Lines[i];
             result += '<table style="display:inline-block">';
-                result += '<tr><td>';
-                    result += line;
-                    result += '</td></tr>';
-                result += '<tr><td>';
-                    result += '<img src="' + line + '" style="width:330px;" />';
-                    result += '</td></tr>';
-                result += '</table>';
+            result += '<tr><td>';
+            result += '<span style="font-size:7px">' + line + '</span>';
+            result += '</td></tr>';
+            result += '<tr><td>';
+            // result += '<img src="' + line + '" style="width:330px;" />';
+            result += '<img src="' + line + '" style="height:220px;" />';
+            result += '</td></tr>';
+            result += '</table>';
             result += '&nbsp;';
         }
     div.innerHTML = result;
