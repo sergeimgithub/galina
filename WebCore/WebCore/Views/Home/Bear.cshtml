@@ -1,0 +1,24 @@
+﻿@model WebCore.Models.Serialized
+
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+
+<div id="imagediv">Wait ...</div>
+
+<script src="CommonCode.js"></script>
+
+<script>
+    window.onload = function() {
+        var data = @Html.Raw(Model.Data);
+        var div = document.getElementById('imagediv');
+        RenderImageFolder(div, data);
+    } 
+</script>
