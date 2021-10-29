@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Distribution.Common\Distribution.Common.csproj" />
+    <ProjectReference Include="..\..\src\Distribution.Ingestion\Distribution.Ingestion.csproj" />
+    <ProjectReference Include="..\..\src\Distribution.Publication\Distribution.Publication.csproj" />
+  </ItemGroup>
+
+</Project>
