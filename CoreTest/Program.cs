@@ -22,10 +22,17 @@ namespace CoreTest
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("hostsettings.json", optional: true)
+                .AddJsonFile("appsettings.json", optional: true)
                 .AddCommandLine(args)
                 .Build();
 
-            return WebHost.CreateDefaultBuilder(args)
+            // Get configuration way 1
+            var positionOptions = new PositionOptions();
+            config.GetSection(PositionOptions.Position).Bind(positionOptions);
+            Console.WriteLine($"Title: {positionOptions.Title}");
+            Console.WriteLine($"Name: {positionOptions.Name}");
+
+            var host = WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseUrls("http://localhost:5000")
                 .UseConfiguration(config)
@@ -37,6 +44,8 @@ namespace CoreTest
                 }) 
 #endif
                 ;
+
+            return host;
         }
 
         internal static Task Handler(HttpContext context)

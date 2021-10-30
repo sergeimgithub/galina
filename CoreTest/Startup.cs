@@ -12,6 +12,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CoreTest
 {
+    public class PositionOptions
+    {
+        public const string Position = "Position";
+
+        public string Title { get; set; }
+        public string Name { get; set; }
+    }
+
     public class Startup
     {
         public IConfiguration Configuration { get; }
@@ -19,19 +27,28 @@ namespace CoreTest
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            // Get configuration way 2
+            var positionOptions = new PositionOptions();
+            Configuration.GetSection(PositionOptions.Position).Bind(positionOptions);
+            Console.WriteLine($"Title: {positionOptions.Title}");
+            Console.WriteLine($"Name: {positionOptions.Name}");
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            ////// https://eng.ms/docs/experiences-devices/r9-sdk/docs/telemetry/metering/geneva-metric-export
-            ////services.AddGenevaMetering(Configuration.GetSection("GenevaMetering"));
+            services.Configure<PositionOptions>(Configuration.GetSection(PositionOptions.Position));
+#if false
+            // https://eng.ms/docs/experiences-devices/r9-sdk/docs/telemetry/metering/geneva-metric-export
+            services.AddGenevaMetering(Configuration.GetSection("GenevaMetering"));
 
-            ////services.AddControllers();
-            ////services.AddSwaggerGen(c =>
-            ////{
-            ////    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Distribution.TestService", Version = "v1" });
-            ////});
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Distribution.TestService", Version = "v1" });
+            }); 
+#endif
         }
 
         public void Configure(IApplicationBuilder app, IHostApplicationLifetime appLifetime, IWebHostEnvironment env)

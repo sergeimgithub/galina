@@ -28,7 +28,7 @@ namespace CoreTestClient
             var mockHttpMessageHandler = new HttpClientHandler();
             var httpClient = new HttpClient(mockHttpMessageHandler);
             // TODO: Should be taken from Configuration
-            var requestUri = "http://localhost:5000/api/CoreTest2";
+            var requestUri = "http://localhost:5000/api/CoreTest";
             // var requestUri = "http://localhost:5000/local";
             // var requestUri = "http://localhost:5000";
             IDictionary<string, string> headersAsDictionary = new Dictionary<string, string>();
