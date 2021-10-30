@@ -24,32 +24,47 @@ namespace CoreTestClient
 
         private async Task Run(string[] args)
         {
-            var cancellationToken = new CancellationTokenSource();
+            var cancellationTokenSource = new CancellationTokenSource();
             var mockHttpMessageHandler = new HttpClientHandler();
             var httpClient = new HttpClient(mockHttpMessageHandler); // .
             // TODO: Should be taken from Configuration
             var url = "http://localhost:5000";
-            var testPayload = new TestPayload { Name = "sergeim", Age = 100, };
+            IDictionary<string, string> headersAsDictionary = new Dictionary<string, string>();
+
+            headersAsDictionary.Add(X_MS_CORRELATION_ID, Guid.NewGuid().ToString());
+            headersAsDictionary.Add("User-Agent", Agent);
+
+            int numberOfRepetitions = 10;
+            for (int i = 0; i < numberOfRepetitions; i++)
+            {
+                var httpRequestMessage = await BuildRequestMessage(url, headersAsDictionary, iteration: i);
+                await SendToCoreTest(httpClient, httpRequestMessage, cancellationTokenSource.Token); 
+            }
+        }
+        
+        private static async Task<HttpRequestMessage> BuildRequestMessage(string url, IDictionary<string, string> headersAsDictionary, int iteration)
+        {
+            await Task.Run(() => "none");
+            var testPayload = new TestPayload { Name = "sergeim", Age = 100 + iteration, };
             var jsonMsg = JsonConvert.SerializeObject(testPayload);
             var stringContent = new StringContent(jsonMsg, System.Text.Encoding.UTF8, "application/json");
 
-            IDictionary<string, string> hdrs = new Dictionary<string, string>();
-
-            hdrs.Add(X_MS_CORRELATION_ID, Guid.NewGuid().ToString());
-            hdrs.Add("User-Agent", Agent);
-
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, url);
-            foreach (var headerEntry in hdrs)
+            foreach (var headerEntry in headersAsDictionary)
             {
                 httpRequestMessage.Headers.Add(headerEntry.Key, headerEntry.Value);
             }
             httpRequestMessage.Content = stringContent;
+            return httpRequestMessage;
+        }
 
+        private async Task SendToCoreTest(HttpClient httpClient, HttpRequestMessage httpRequestMessage, CancellationToken cancellationToken)
+        {
             try
             {
                 var response = await httpClient.SendAsync(
                     httpRequestMessage,
-                    cancellationToken.Token).ConfigureAwait(false);
+                    cancellationToken).ConfigureAwait(false);
 
                 var success = response.IsSuccessStatusCode;
 
@@ -58,12 +73,12 @@ namespace CoreTestClient
                     var errorMessage = $"Failed. " +
                         $"Message failed with the following Status Code '{response.StatusCode}'";
                     Console.WriteLine(errorMessage);
+                }
 
-                    if (response.Content != null)
-                    {
-                        var payload = await response.Content.ReadAsStringAsync();
-                        Console.WriteLine($"Response payload: {payload}");
-                    }
+                if (response.Content != null)
+                {
+                    var payload = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Response payload: {payload}");
                 }
             }
             catch (HttpRequestException ex)
