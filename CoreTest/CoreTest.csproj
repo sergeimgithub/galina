@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
-    <PackageReference Include="Wheel.Backports" Version="3.1.0" />
   </ItemGroup>
 
 </Project>
