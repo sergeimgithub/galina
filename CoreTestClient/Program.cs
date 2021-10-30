@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
+using CoreTestCommon;
 using Newtonsoft.Json;
 
 namespace CoreTestClient
@@ -88,12 +89,5 @@ namespace CoreTestClient
         {
             Console.WriteLine(errorMessage, exception);
         }
-
-    }
-
-    internal class TestPayload
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
     }
 }
