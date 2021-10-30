@@ -1,14 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore;
 
 namespace CoreTest
 {
@@ -26,8 +24,6 @@ namespace CoreTest
                 .AddJsonFile("hostsettings.json", optional: true)
                 .AddCommandLine(args)
                 .Build();
-
-            IApplicationBuilder bld;
 
             return WebHost.CreateDefaultBuilder(args)
                 .UseUrls("http://*:5000")
