@@ -26,18 +26,20 @@ namespace CoreTestClient
         {
             var cancellationTokenSource = new CancellationTokenSource();
             var mockHttpMessageHandler = new HttpClientHandler();
-            var httpClient = new HttpClient(mockHttpMessageHandler); // .
+            var httpClient = new HttpClient(mockHttpMessageHandler);
             // TODO: Should be taken from Configuration
-            var url = "http://localhost:5000";
+            var requestUri = "http://localhost:5000/api/CoreTest2";
+            // var requestUri = "http://localhost:5000/local";
+            // var requestUri = "http://localhost:5000";
             IDictionary<string, string> headersAsDictionary = new Dictionary<string, string>();
 
             headersAsDictionary.Add(X_MS_CORRELATION_ID, Guid.NewGuid().ToString());
             headersAsDictionary.Add("User-Agent", Agent);
 
-            int numberOfRepetitions = 10;
+            int numberOfRepetitions = 1;
             for (int i = 0; i < numberOfRepetitions; i++)
             {
-                var httpRequestMessage = await BuildRequestMessage(url, headersAsDictionary, iteration: i);
+                var httpRequestMessage = await BuildRequestMessage(requestUri, headersAsDictionary, iteration: i);
                 await SendToCoreTest(httpClient, httpRequestMessage, cancellationTokenSource.Token); 
             }
         }

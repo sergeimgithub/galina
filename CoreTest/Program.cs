@@ -26,15 +26,20 @@ namespace CoreTest
                 .Build();
 
             return WebHost.CreateDefaultBuilder(args)
-                .UseUrls("http://*:5000")
+                .UseStartup<Startup>()
+                .UseUrls("http://localhost:5000")
                 .UseConfiguration(config)
-                .Configure(app =>
+#if false
+        .Configure(app =>
                 {
+                    app.UsePathBase("/local");
                     app.Run(Handler);
-                });
+                }) 
+#endif
+                ;
         }
 
-        private static Task Handler(HttpContext context)
+        internal static Task Handler(HttpContext context)
         {
             var req = context.Request;
             var payload = req.Body;
