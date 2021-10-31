@@ -28,9 +28,14 @@ namespace CoreTestClient
             var mockHttpMessageHandler = new HttpClientHandler();
             var httpClient = new HttpClient(mockHttpMessageHandler);
             // TODO: Should be taken from Configuration
-            var requestUri = "http://localhost:5000/api/CoreTest";
-            // var requestUri = "http://localhost:5000/local";
-            // var requestUri = "http://localhost:5000";
+
+            var requestUri01 = "http://localhost:5000/api/CoreTest";
+            var requestUri02 = "https://coretest20211031021946.azurewebsites.net/api/CoreTest";
+            var requestUri03 = "http://localhost:5000/local";
+            var requestUri04 = "http://localhost:5000";
+
+            var requestUri = requestUri02;
+
             IDictionary<string, string> headersAsDictionary = new Dictionary<string, string>();
 
             headersAsDictionary.Add(X_MS_CORRELATION_ID, Guid.NewGuid().ToString());

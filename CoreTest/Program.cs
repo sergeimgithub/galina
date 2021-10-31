@@ -32,9 +32,19 @@ namespace CoreTest
             Console.WriteLine($"Title: {positionOptions.Title}");
             Console.WriteLine($"Name: {positionOptions.Name}");
 
+            var requestUri01 = "http://localhost:5000";
+            var requestUri02 = "https://coretest20211031021946.azurewebsites.net";
+            var requestUri03 = "https://*";
+            var requestUri04 = "http://localhost:5000";
+
+            var requestUri = requestUri03;
+
+
             var host = WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:5000")
+//                .UseUrls(requestUri)
+//                .UseUrls("http://localhost:5000")
+//                .UseUrls("https://coretest20211031021946.azurewebsites.net")
                 .UseConfiguration(config)
 #if false
         .Configure(app =>
